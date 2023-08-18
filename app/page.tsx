@@ -1,9 +1,11 @@
 import { ClientCompoenent } from "./ClientCompoenent";
-import { dependencies } from "../package.json"
+import packageJson from "../package.json"
+import { getReactVersion } from "./react-version";
 
-export default function Home() {
+export default async function Home() {
   return <>
-    <h1>Next: {dependencies["next"]}</h1>
+    <h1>Next: {packageJson.dependencies["next"]}</h1>
+    <h2>React: {await getReactVersion()}</h2>
     <ClientCompoenent />
   </>
 }
